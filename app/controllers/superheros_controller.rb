@@ -10,6 +10,7 @@ class SuperherosController < ApplicationController
   # GET /superheros/1
   # GET /superheros/1.json
   def show
+    @abilities = Ability.all
   end
 
   # GET /superheros/new

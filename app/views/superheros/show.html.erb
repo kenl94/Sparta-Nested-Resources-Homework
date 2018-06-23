@@ -15,5 +15,26 @@
   <%= @superhero.state %>
 </p>
 
+
+<table>
+  <thead>
+    <th>Abilities</th>
+  </thead>
+  <tbody>
+    <!-- Loops the table to find the information of the book  -->
+    <% @abilities.each do |ability| %>
+    <!--  If the book author id is identical to the author id then print out the book -->
+    <% if(ability.superhero_id == @superhero.id) %>
+    <tr>
+      <td><%= ability.power %></td>
+      <td> <%= link_to 'See More', superhero_ability_path(@superhero, ability) %> </td>
+
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Power', new_superhero_ability_path(@superhero) %> 
 <%= link_to 'Edit', edit_superhero_path(@superhero) %> |
 <%= link_to 'Back', superheros_path %>
