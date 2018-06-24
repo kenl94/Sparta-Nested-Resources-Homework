@@ -15,5 +15,25 @@
   <%= @superhero.state %>
 </p>
 
-<%= link_to 'Edit', edit_superhero_path(@superhero) %> |
+
+<table>
+  <thead>
+    <th>Abilities</th>
+  </thead>
+  <tbody>
+    <% @ability.each do |abilities| %>
+    <% if(abilities.superhero_id == @superhero.id) %>
+    <tr>
+      <td><%= abilities.power %></td>
+      <td> <%= link_to 'See More', superhero_ability_path(@superhero, abilities) %> </td>
+      <td> <%= link_to 'Edit', edit_superhero_ability_path(@superhero,abilities) %> </td>
+      <td> <%= link_to 'Delete', superhero_ability_path(@superhero,abilities), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Power', new_superhero_ability_path(@superhero) %>
 <%= link_to 'Back', superheros_path %>
