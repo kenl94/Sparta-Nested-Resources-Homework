@@ -57,7 +57,7 @@ class SuperherosController < ApplicationController
   def destroy
     @superhero.destroy
     respond_to do |format|
-      format.html { redirect_to superheros_url, notice: 'Superhero was successfully destroyed.' }
+      format.html { redirect_to superheros_path, notice: 'Superhero was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -49,7 +49,7 @@ class AbilitiesController < ApplicationController
 
     respond_to do |format|
       if @ability.update(ability_params)
-        format.html { redirect_to @ability, notice: 'Ability was successfully updated.' }
+        format.html { redirect_to superhero_ability_path, notice: 'Ability was successfully updated.' }
         format.json { render :show, status: :ok, location: @ability }
       else
         format.html { render :edit }
@@ -61,9 +61,10 @@ class AbilitiesController < ApplicationController
   # DELETE /abilities/1
   # DELETE /abilities/1.json
   def destroy
+    @superhero = Superhero.find(params[:superhero_id])
     @ability.destroy
     respond_to do |format|
-      format.html { redirect_to superhero_abilities_path, notice: 'Ability was successfully destroyed.' }
+      format.html { redirect_to superhero_path(@superhero), notice: 'Ability was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
