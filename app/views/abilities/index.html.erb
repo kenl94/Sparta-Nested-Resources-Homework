@@ -16,9 +16,8 @@
       <tr>
         <td><%= ability.power %></td>
         <td><%= ability.superhero_id %></td>
-        <td><%= link_to 'Show', ability %></td>
-        <td><%= link_to 'Edit', edit_ability_path(ability) %></td>
-        <td><%= link_to 'Destroy', ability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_superhero_ability_path(@superhero, ability) %></td>
+        <td><%= link_to 'Destroy', superhero_ability_path(@superhero, ability), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Ability', new_ability_path %>
+<%= link_to 'New Ability', new_superhero_ability_path %>
